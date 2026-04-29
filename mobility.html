@@ -133,6 +133,110 @@
           </div>
         </div>
 
+        <div class="vehicle-system-section" aria-labelledby="vehicle-system-title">
+          <div class="visual-heading">
+            <p class="eyebrow">Vehicle system visual</p>
+            <h2 id="vehicle-system-title">Inside a Fuel-Cell Electric Vehicle</h2>
+            <p>
+              This diagram breaks the car into the parts that make hydrogen mobility different from a battery-only EV: compressed tanks, a fuel-cell stack, a small battery buffer, power electronics, a motor, oxygen intake, and water exhaust.
+            </p>
+          </div>
+          <div class="fcev-diagram" aria-label="Fuel-cell electric vehicle component diagram">
+            <div class="car-shell">
+              <svg class="fcev-svg" viewBox="0 0 1180 520" role="img" aria-labelledby="fcev-svg-title fcev-svg-desc">
+                <title id="fcev-svg-title">Fuel-cell electric vehicle component model</title>
+                <desc id="fcev-svg-desc">Side-view diagram showing high-pressure hydrogen tanks, fuel-cell stack, battery, motor, oxygen intake, electrical flow, and water exhaust.</desc>
+                <defs>
+                  <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#3b9ed8"></path>
+                  </marker>
+                  <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#d97339"></path>
+                  </marker>
+                  <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L8,3 z" fill="#d34d42"></path>
+                  </marker>
+                  <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="130%">
+                    <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#172026" flood-opacity="0.15"></feDropShadow>
+                  </filter>
+                </defs>
+
+                <path class="fcev-body" d="M110 342 C154 286 229 254 332 240 L483 158 C560 118 697 126 791 174 L896 231 C968 240 1036 270 1086 322 L1044 388 L169 388 Z"></path>
+                <path class="fcev-roof" d="M398 232 L500 164 C575 126 690 135 772 186 L822 232 Z"></path>
+                <path class="fcev-window" d="M500 176 C565 145 674 151 747 193 L775 226 L421 226 Z"></path>
+                <line class="fcev-door" x1="624" y1="228" x2="624" y2="382"></line>
+                <line class="fcev-door" x1="812" y1="236" x2="846" y2="382"></line>
+
+                <circle class="fcev-wheel tire" cx="290" cy="385" r="70"></circle>
+                <circle class="fcev-wheel hub" cx="290" cy="385" r="42"></circle>
+                <circle class="fcev-wheel tire" cx="870" cy="385" r="70"></circle>
+                <circle class="fcev-wheel hub" cx="870" cy="385" r="42"></circle>
+
+                <g class="svg-component tank-svg" filter="url(#soft-shadow)">
+                  <rect x="760" y="132" width="190" height="54" rx="27"></rect>
+                  <rect x="760" y="188" width="190" height="54" rx="27"></rect>
+                  <text x="855" y="168">1 H2 tanks</text>
+                  <text x="855" y="223">700 bar storage</text>
+                </g>
+                <g class="svg-component stack-svg" filter="url(#soft-shadow)">
+                  <rect x="512" y="282" width="152" height="78" rx="10"></rect>
+                  <path d="M535 292 V350 M558 292 V350 M581 292 V350 M604 292 V350 M627 292 V350"></path>
+                  <text x="588" y="327">2 Stack</text>
+                </g>
+                <g class="svg-component battery-svg" filter="url(#soft-shadow)">
+                  <rect x="682" y="374" width="132" height="46" rx="9"></rect>
+                  <text x="748" y="404">4 Battery</text>
+                </g>
+                <g class="svg-component motor-svg" filter="url(#soft-shadow)">
+                  <circle cx="250" cy="300" r="44"></circle>
+                  <rect x="250" y="272" width="72" height="56" rx="8"></rect>
+                  <text x="286" y="304">3 Motor</text>
+                </g>
+                <g class="svg-component exhaust-svg" filter="url(#soft-shadow)">
+                  <rect x="990" y="244" width="76" height="44" rx="10"></rect>
+                  <text x="1028" y="272">5 H2O</text>
+                </g>
+
+                <path class="flow oxygen-flow" d="M74 306 C142 290 180 292 231 300" marker-end="url(#arrow-blue)"></path>
+                <text class="flow-label oxygen-label" x="62" y="286">O2 in</text>
+                <path class="flow hydrogen-flow" d="M758 214 C704 234 660 260 622 286" marker-end="url(#arrow-blue)"></path>
+                <text class="flow-label hydrogen-label" x="718" y="110">hydrogen to stack</text>
+                <path class="flow electric-flow" d="M512 321 C434 316 370 306 322 304" marker-end="url(#arrow-orange)"></path>
+                <path class="flow electric-flow" d="M664 338 C704 360 720 374 732 388" marker-end="url(#arrow-orange)"></path>
+                <text class="flow-label electric-label" x="390" y="286">electric power</text>
+                <path class="flow water-flow-svg" d="M664 294 C780 276 903 258 990 265" marker-end="url(#arrow-red)"></path>
+                <text class="flow-label water-label" x="1010" y="230">water out</text>
+
+                <g class="callout callout-tank">
+                  <path d="M850 92 V130"></path>
+                  <rect x="722" y="34" width="256" height="44" rx="8"></rect>
+                  <text x="850" y="62">Fuel tank stores H2</text>
+                </g>
+                <g class="callout callout-stack">
+                  <path d="M588 248 V281"></path>
+                  <rect x="448" y="198" width="280" height="44" rx="8"></rect>
+                  <text x="588" y="226">Stack makes electricity</text>
+                </g>
+                <g class="callout callout-battery">
+                  <path d="M748 452 V420"></path>
+                  <rect x="614" y="456" width="268" height="44" rx="8"></rect>
+                  <text x="748" y="484">Battery buffers power</text>
+                </g>
+              </svg>
+            </div>
+            <div class="vehicle-label-grid">
+              <article><strong>1. Fuel tank</strong><span>Stores compressed hydrogen, commonly at high pressure, so enough fuel fits onboard.</span></article>
+              <article><strong>2. Fuel-cell stack</strong><span>Converts H2 and oxygen into electricity, heat, and water through electrochemistry.</span></article>
+              <article><strong>3. Motor</strong><span>Turns electric power into wheel torque, so the vehicle drives like an EV.</span></article>
+              <article><strong>4. Battery</strong><span>Buffers power, captures regenerative braking, and supports acceleration.</span></article>
+              <article><strong>5. Exhaust</strong><span>Water vapor and heat leave the vehicle; upstream hydrogen production still determines climate impact.</span></article>
+            </div>
+          </div>
+          <p class="figure-caption">
+            Figure takeaway: the car is only one part of the system. The onboard technology works when hydrogen supply, pressure, fuel purity, station reliability, and vehicle controls all line up.
+          </p>
+        </div>
+
         <div class="science-layer">
           <div class="science-heading">
             <p class="eyebrow">Science layer</p>

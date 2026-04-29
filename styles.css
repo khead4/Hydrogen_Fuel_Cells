@@ -12,6 +12,11 @@
   --brown: #8a4b24;
   --rust: #b5482a;
   --gold: #c7972d;
+  --green-soft: #eaf5ee;
+  --blue-soft: #edf4ff;
+  --gold-soft: #fff5dc;
+  --rust-soft: #faede8;
+  --slate-soft: #eef3f4;
   --shadow: 0 18px 50px rgba(23, 32, 38, 0.12);
 }
 
@@ -28,7 +33,9 @@ body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--ink);
-  background: var(--paper);
+  background:
+    linear-gradient(180deg, rgba(234, 245, 238, 0.7), rgba(255, 245, 220, 0.34) 38%, rgba(237, 244, 255, 0.56) 100%),
+    var(--paper);
   line-height: 1.6;
 }
 
@@ -483,6 +490,22 @@ h3 {
   display: grid;
 }
 
+.color-pane[data-color-pane="green"] {
+  background: linear-gradient(135deg, rgba(22, 138, 74, 0.12), #ffffff 46%);
+}
+
+.color-pane[data-color-pane="grey"] {
+  background: linear-gradient(135deg, rgba(107, 114, 128, 0.14), #ffffff 46%);
+}
+
+.color-pane[data-color-pane="blue"] {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), #ffffff 46%);
+}
+
+.color-pane[data-color-pane="brown"] {
+  background: linear-gradient(135deg, rgba(138, 75, 36, 0.14), #ffffff 46%);
+}
+
 .pane-copy p {
   color: var(--muted);
 }
@@ -632,8 +655,9 @@ meter {
   margin: 42px 0;
   padding: clamp(22px, 4vw, 36px);
   border: 1px solid var(--line);
+  border-top: 5px solid var(--gold);
   border-radius: 8px;
-  background: #f7f9f6;
+  background: linear-gradient(180deg, var(--gold-soft), #ffffff 72%);
 }
 
 .price-method {
@@ -743,8 +767,9 @@ meter {
   margin: 34px 0;
   padding: clamp(22px, 4vw, 36px);
   border: 1px solid var(--line);
+  border-top: 5px solid var(--green);
   border-radius: 8px;
-  background: #f4f8f5;
+  background: linear-gradient(180deg, var(--green-soft), #ffffff 76%);
 }
 
 .model-heading {
@@ -779,18 +804,224 @@ meter {
 
 .model-green {
   border-top-color: var(--green);
+  background: linear-gradient(180deg, rgba(22, 138, 74, 0.1), #ffffff 42%);
 }
 
 .model-grey {
   border-top-color: var(--grey);
+  background: linear-gradient(180deg, rgba(107, 114, 128, 0.12), #ffffff 42%);
 }
 
 .model-blue {
   border-top-color: var(--blue);
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.1), #ffffff 42%);
 }
 
 .model-brown {
   border-top-color: var(--brown);
+  background: linear-gradient(180deg, rgba(138, 75, 36, 0.12), #ffffff 42%);
+}
+
+.type-image {
+  position: relative;
+  min-height: 150px;
+  margin: 2px 0 16px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--green-soft);
+}
+
+.type-image::after {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  color: rgba(23, 32, 38, 0.18);
+  font-size: 2.8rem;
+  font-weight: 950;
+  content: "H2";
+}
+
+.type-image-green {
+  background: linear-gradient(180deg, #dff4ff 0 46%, #dff3df 46% 100%);
+}
+
+.type-image-grey {
+  background: linear-gradient(180deg, #eef1f3 0 48%, #d8dde1 48% 100%);
+}
+
+.type-image-blue {
+  background: linear-gradient(180deg, #dceeff 0 48%, #e9f0ff 48% 100%);
+}
+
+.type-image-brown {
+  background: linear-gradient(180deg, #f4e8dc 0 48%, #dfc2a7 48% 100%);
+}
+
+.type-sun {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 8px rgba(199, 151, 45, 0.22);
+}
+
+.type-turbine {
+  position: absolute;
+  right: 30px;
+  bottom: 20px;
+  width: 64px;
+  height: 92px;
+}
+
+.type-turbine::before {
+  position: absolute;
+  right: 29px;
+  bottom: 0;
+  width: 5px;
+  height: 70px;
+  border-radius: 999px;
+  background: var(--green);
+  content: "";
+}
+
+.type-turbine i {
+  position: absolute;
+  top: 14px;
+  left: 24px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.type-turbine i::before,
+.type-turbine i::after {
+  position: absolute;
+  top: 8px;
+  left: -18px;
+  width: 56px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--green);
+  content: "";
+}
+
+.type-turbine i::before {
+  transform: rotate(28deg);
+}
+
+.type-turbine i::after {
+  transform: rotate(118deg);
+}
+
+.type-panel {
+  position: absolute;
+  bottom: 22px;
+  left: 18px;
+  width: 70px;
+  height: 42px;
+  border: 3px solid #2d5f9f;
+  background: repeating-linear-gradient(90deg, #8ebee9 0 14px, #6aa3dc 14px 16px);
+  transform: skewX(-10deg);
+}
+
+.type-electrolyser,
+.type-reformer,
+.type-capture,
+.type-gasifier {
+  position: absolute;
+  right: 24px;
+  bottom: 22px;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 52px;
+  border-radius: 8px;
+  color: #ffffff;
+  background: var(--teal);
+  font-weight: 950;
+}
+
+.type-stack {
+  position: absolute;
+  bottom: 26px;
+  left: 22px;
+  width: 48px;
+  height: 86px;
+  background: #6b7280;
+}
+
+.type-stack::before {
+  position: absolute;
+  top: -20px;
+  left: 18px;
+  width: 12px;
+  height: 20px;
+  background: #6b7280;
+  content: "";
+}
+
+.type-reformer {
+  right: 24px;
+  background: #73787c;
+}
+
+.type-pipe {
+  position: absolute;
+  right: 78px;
+  bottom: 46px;
+  left: 70px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(23, 32, 38, 0.28);
+}
+
+.type-smoke {
+  position: absolute;
+  top: 18px;
+  left: 42px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(91, 102, 112, 0.28);
+  box-shadow: 18px -12px 0 rgba(91, 102, 112, 0.18), 36px -5px 0 rgba(91, 102, 112, 0.16);
+}
+
+.type-capture {
+  right: 22px;
+  background: var(--blue);
+}
+
+.type-storage-dome {
+  position: absolute;
+  right: 20px;
+  bottom: 22px;
+  width: 84px;
+  height: 42px;
+  border: 4px solid var(--blue);
+  border-bottom-width: 8px;
+  border-radius: 80px 80px 8px 8px;
+  opacity: 0.72;
+}
+
+.type-coal {
+  position: absolute;
+  bottom: 26px;
+  left: 20px;
+  width: 58px;
+  height: 34px;
+  border-radius: 55% 45% 24% 24%;
+  background: #6c3b20;
+  box-shadow: 22px -12px 0 #8a4b24, 46px 0 0 #5a301b;
+}
+
+.type-gasifier {
+  right: 28px;
+  bottom: 32px;
+  background: var(--brown);
 }
 
 .model-card h3 {
@@ -832,8 +1063,9 @@ meter {
   margin: 34px 0;
   padding: clamp(22px, 4vw, 36px);
   border: 1px solid var(--line);
+  border-top: 5px solid var(--rust);
   border-radius: 8px;
-  background: #f7f4ef;
+  background: linear-gradient(180deg, var(--rust-soft), #ffffff 76%);
 }
 
 .type-compare-grid {
@@ -1019,6 +1251,328 @@ meter {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: #f4f8fb;
+}
+
+.vehicle-system-section,
+.refuel-system-section {
+  display: grid;
+  gap: 18px;
+  margin: 42px 0;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--blue);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #eef7ff, #ffffff 78%);
+}
+
+.fcev-diagram {
+  display: grid;
+  gap: 18px;
+}
+
+.car-shell {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(237, 244, 255, 0.78)),
+    #ffffff;
+}
+
+.car-shell::before {
+  display: none;
+  position: absolute;
+  right: 9%;
+  bottom: 96px;
+  left: 8%;
+  height: 154px;
+  border: 4px solid rgba(23, 32, 38, 0.12);
+  border-radius: 84px 110px 34px 34px;
+  background: rgba(127, 205, 232, 0.72);
+  content: "";
+  clip-path: polygon(0 58%, 15% 28%, 37% 12%, 72% 14%, 90% 34%, 100% 58%, 96% 82%, 8% 82%);
+}
+
+.fcev-svg {
+  display: block;
+  width: 100%;
+  min-height: 360px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(237, 244, 255, 0.72)),
+    #ffffff;
+}
+
+.fcev-body {
+  fill: #aee0f0;
+  stroke: rgba(23, 32, 38, 0.14);
+  stroke-width: 4;
+}
+
+.fcev-roof {
+  fill: #bfe8f5;
+}
+
+.fcev-window {
+  fill: #26313a;
+}
+
+.fcev-door {
+  stroke: rgba(23, 32, 38, 0.16);
+  stroke-width: 3;
+}
+
+.fcev-wheel.tire {
+  fill: #0e1418;
+}
+
+.fcev-wheel.hub {
+  fill: #aeb7be;
+}
+
+.svg-component rect,
+.svg-component circle {
+  fill: #313b44;
+}
+
+.svg-component text,
+.callout text,
+.flow-label {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.svg-component text {
+  fill: #ffffff;
+}
+
+.stack-svg path {
+  stroke: #8fd1ef;
+  stroke-width: 5;
+}
+
+.battery-svg rect {
+  fill: #f5d64b;
+}
+
+.battery-svg text {
+  fill: #172026;
+}
+
+.exhaust-svg rect {
+  fill: #dcefff;
+}
+
+.exhaust-svg text {
+  fill: var(--blue);
+}
+
+.flow {
+  fill: none;
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.oxygen-flow,
+.hydrogen-flow {
+  stroke: #3b9ed8;
+}
+
+.electric-flow {
+  stroke: #d97339;
+}
+
+.water-flow-svg {
+  stroke: #d34d42;
+}
+
+.flow-label {
+  fill: #365a72;
+  font-size: 22px;
+}
+
+.electric-label {
+  fill: #9c562a;
+}
+
+.water-label {
+  fill: #b6322c;
+}
+
+.callout path {
+  fill: none;
+  stroke: #e4d600;
+  stroke-width: 4;
+}
+
+.callout rect {
+  fill: #fff200;
+}
+
+.callout text {
+  fill: #172026;
+  font-size: 23px;
+}
+
+.car-window {
+  position: absolute;
+  top: 122px;
+  left: 36%;
+  width: 210px;
+  height: 70px;
+  border-radius: 70px 90px 10px 10px;
+  background: #172026;
+  opacity: 0.85;
+  clip-path: polygon(0 82%, 22% 18%, 72% 16%, 100% 82%);
+}
+
+.car-wheel {
+  position: absolute;
+  bottom: 88px;
+  width: 92px;
+  height: 92px;
+  border: 16px solid #0e1418;
+  border-radius: 50%;
+  background: #9aa5ad;
+  z-index: 3;
+}
+
+.front-wheel {
+  left: 22%;
+}
+
+.rear-wheel {
+  right: 18%;
+}
+
+.component {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  min-width: 92px;
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 2px solid rgba(23, 32, 38, 0.18);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #fff200;
+  font-size: 0.85rem;
+  font-weight: 950;
+  box-shadow: 0 8px 18px rgba(23, 32, 38, 0.1);
+}
+
+.tank-component {
+  top: 80px;
+  right: 16%;
+  background: #2f3b44;
+  color: #ffffff;
+}
+
+.tank-component::before,
+.tank-component::after {
+  position: absolute;
+  top: -20px;
+  width: 58px;
+  height: 26px;
+  border-radius: 999px;
+  background: #2f3b44;
+  content: "";
+}
+
+.tank-component::before {
+  left: 4px;
+}
+
+.tank-component::after {
+  right: 4px;
+}
+
+.stack-component {
+  top: 210px;
+  left: 44%;
+  background: #303841;
+  color: #ffffff;
+}
+
+.motor-component {
+  top: 230px;
+  left: 18%;
+  background: #3f4650;
+  color: #ffffff;
+}
+
+.battery-component {
+  right: 34%;
+  bottom: 74px;
+  background: #f5d64b;
+}
+
+.exhaust-component {
+  top: 192px;
+  right: 8%;
+  background: #dcefff;
+  color: var(--blue);
+}
+
+.flow-line {
+  position: absolute;
+  z-index: 2;
+  height: 4px;
+  border-radius: 999px;
+}
+
+.h2-flow {
+  top: 146px;
+  right: 26%;
+  width: 26%;
+  background: #42a5d5;
+  transform: rotate(18deg);
+}
+
+.power-flow {
+  top: 238px;
+  left: 30%;
+  width: 36%;
+  background: #d97339;
+}
+
+.water-flow {
+  top: 208px;
+  right: 5%;
+  width: 16%;
+  background: #d34d42;
+  transform: rotate(-12deg);
+}
+
+.vehicle-label-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.vehicle-label-grid article {
+  min-height: 134px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--gold);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.vehicle-label-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.vehicle-label-grid span {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
 .primer-layout {
@@ -1489,6 +2043,11 @@ meter {
   background: #eef6f4;
 }
 
+.refuel-system-section {
+  border-top-color: var(--green);
+  background: linear-gradient(180deg, #eef8f0, #ffffff 78%);
+}
+
 .hub-visual-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.8fr);
@@ -1900,6 +2459,149 @@ meter {
   background: var(--green);
 }
 
+.refuel-network {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.network-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 140px repeat(5, minmax(120px, 1fr));
+  gap: 12px;
+  align-items: center;
+  min-width: 860px;
+  padding: 8px 0;
+}
+
+.row-label {
+  align-self: stretch;
+  display: grid;
+  place-items: center start;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #14313d;
+  background: #dff2ff;
+  font-size: 0.84rem;
+  font-weight: 900;
+}
+
+.transport-row .row-label {
+  background: #fff1c7;
+}
+
+.network-node,
+.network-station,
+.network-vehicle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 82px;
+  padding: 10px;
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #edf7ff;
+  text-align: center;
+  font-size: 0.84rem;
+  font-weight: 850;
+}
+
+.network-node:not(:last-child)::after {
+  position: absolute;
+  top: 50%;
+  right: -13px;
+  width: 14px;
+  height: 2px;
+  background: #5b6670;
+  content: "";
+}
+
+.network-node i {
+  width: 46px;
+  height: 34px;
+  margin-bottom: 5px;
+  border-radius: 8px;
+  background: var(--blue);
+}
+
+.renewable-node i {
+  background:
+    radial-gradient(circle at 75% 35%, var(--gold) 0 13px, transparent 14px),
+    linear-gradient(135deg, transparent 0 42%, var(--green) 43% 50%, transparent 51%),
+    #dff4ff;
+}
+
+.electrolyser-node i {
+  border: 3px solid #69a9d9;
+  background:
+    linear-gradient(90deg, transparent 46%, #69a9d9 47% 53%, transparent 54%),
+    #dff4ff;
+}
+
+.pipeline-node i {
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #88bfe6, #5d9bd1);
+}
+
+.tank-node i {
+  border-radius: 999px;
+  background: #68a9da;
+}
+
+.delivery-node i {
+  width: 58px;
+  border-radius: 6px 14px 6px 6px;
+  background: #6aaee2;
+}
+
+.station-branch {
+  grid-column: 2 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.network-station {
+  min-height: 92px;
+  color: #1e4f70;
+  background:
+    radial-gradient(circle at 50% 38%, #ffffff 0 18px, transparent 19px),
+    #dff4ff;
+}
+
+.mobile-station {
+  background: #d5ebff;
+}
+
+.transport-row {
+  grid-template-columns: 140px repeat(3, minmax(160px, 1fr)) 1fr 1fr;
+}
+
+.network-vehicle {
+  min-height: 72px;
+  color: #5e4100;
+  background: #ffd45c;
+}
+
+.truck-vehicle {
+  grid-column: 2;
+}
+
+.bus-vehicle {
+  grid-column: 3;
+}
+
+.car-vehicle {
+  grid-column: 4;
+}
+
 .sankey-note span {
   color: var(--muted);
 }
@@ -1910,8 +2612,9 @@ meter {
   margin: 42px 0;
   padding: clamp(22px, 4vw, 36px);
   border: 1px solid var(--line);
+  border-top: 5px solid var(--teal);
   border-radius: 8px;
-  background: #eef4f0;
+  background: linear-gradient(180deg, var(--green-soft), #ffffff 76%);
 }
 
 .visual-heading {
@@ -2210,8 +2913,9 @@ meter {
   margin: 42px 0;
   padding: clamp(22px, 4vw, 36px);
   border: 1px solid rgba(37, 99, 235, 0.24);
+  border-top: 5px solid var(--blue);
   border-radius: 8px;
-  background: #f4f8fb;
+  background: linear-gradient(180deg, var(--blue-soft), #ffffff 78%);
 }
 
 .science-heading {
@@ -2334,8 +3038,9 @@ meter {
   margin: 42px 0;
   padding: clamp(22px, 4vw, 36px);
   border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
   border-radius: 8px;
-  background: #f2f6f1;
+  background: linear-gradient(135deg, var(--gold-soft), #ffffff 55%);
 }
 
 .narrative-heading {
@@ -2403,8 +3108,9 @@ meter {
   margin-top: 46px;
   padding: clamp(22px, 4vw, 36px);
   border: 1px solid var(--line);
+  border-top: 5px solid var(--teal-dark);
   border-radius: 8px;
-  background: #ffffff;
+  background: linear-gradient(180deg, #ffffff, var(--slate-soft));
   box-shadow: 0 10px 32px rgba(23, 32, 38, 0.07);
 }
 
@@ -2913,6 +3619,7 @@ meter {
   .price-place-grid,
   .type-model-grid,
   .type-compare-grid,
+  .vehicle-label-grid,
   .study-frame,
   .infrastructure-chain,
   .scenario-study,
@@ -2962,6 +3669,10 @@ meter {
 
   .source-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .car-shell {
+    min-height: 0;
   }
 }
 
@@ -3017,6 +3728,7 @@ meter {
   .price-place-grid,
   .type-model-grid,
   .type-compare-grid,
+  .vehicle-label-grid,
   .study-frame,
   .infrastructure-chain,
   .scenario-study,
@@ -3209,6 +3921,56 @@ meter {
     height: 50px;
   }
 
+  .car-shell {
+    min-height: 0;
+  }
+
+  .car-shell::before {
+    right: 4%;
+    left: 4%;
+  }
+
+  .car-window {
+    top: 136px;
+    left: 30%;
+    width: 150px;
+  }
+
+  .front-wheel {
+    left: 16%;
+  }
+
+  .rear-wheel {
+    right: 12%;
+  }
+
+  .component {
+    min-width: 78px;
+    font-size: 0.74rem;
+  }
+
+  .tank-component {
+    right: 10%;
+  }
+
+  .stack-component {
+    top: 238px;
+    left: 36%;
+  }
+
+  .motor-component {
+    top: 258px;
+    left: 10%;
+  }
+
+  .battery-component {
+    right: 27%;
+  }
+
+  .exhaust-component {
+    top: 224px;
+  }
+
   .model-card {
     min-height: auto;
   }
@@ -3307,4 +4069,320 @@ meter {
     border-radius: 0;
     background: #102126;
   }
+}
+
+@media not all {
+  :root {
+    --ink: #edf7f3;
+    --muted: #b7c7c9;
+    --paper: #0b1214;
+    --surface: #121c20;
+    --line: rgba(214, 230, 225, 0.16);
+    --teal: #48c6b5;
+    --teal-dark: #8ce0d2;
+    --blue: #7aa7ff;
+    --green: #64d68d;
+    --grey: #aeb7be;
+    --brown: #d69a6f;
+    --rust: #ee8a6f;
+    --gold: #f0c75e;
+    --green-soft: #10241b;
+    --blue-soft: #101d34;
+    --gold-soft: #271f0d;
+    --rust-soft: #2b1712;
+    --slate-soft: #10181b;
+    --shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background:
+      radial-gradient(circle at 12% 0%, rgba(72, 198, 181, 0.12), transparent 32%),
+      radial-gradient(circle at 88% 10%, rgba(240, 199, 94, 0.1), transparent 28%),
+      linear-gradient(180deg, #0b1214, #0f171a 42%, #0b1214);
+  }
+
+  .site-header {
+    background: rgba(11, 18, 20, 0.94);
+    border-bottom-color: rgba(214, 230, 225, 0.14);
+  }
+
+  .brand-mark,
+  .nav-button,
+  .primary-action,
+  .secondary-action,
+  .scenario-button,
+  .color-tab,
+  .price-toggle {
+    border-color: rgba(214, 230, 225, 0.2);
+  }
+
+  .nav-button:hover,
+  .nav-button.active,
+  .scenario-button.active,
+  .price-toggle.active {
+    color: var(--ink);
+    background: #142226;
+    border-color: rgba(72, 198, 181, 0.55);
+  }
+
+  .program-strip,
+  .media-panel figcaption,
+  .motor-callout,
+  .infrastructure-picture-header figcaption {
+    background: #071012;
+  }
+
+  .split-band,
+  .hero-strip article,
+  .fact-card,
+  .analysis-card,
+  .loss-card,
+  .answer-grid article,
+  .path-card,
+  .tab-panels,
+  .price-place,
+  .model-card,
+  .type-compare-card,
+  .visual-card,
+  .science-card,
+  .science-explain article,
+  .primer-callouts article,
+  .cutaway-zone,
+  .sankey-visual,
+  .sankey-note,
+  .vehicle-label-grid article,
+  .mobility-card,
+  .implementation-flow article,
+  .evidence-strip article,
+  .study-frame article,
+  .infrastructure-chain article,
+  .scenario-study article,
+  .study-conclusion-grid article,
+  .source-card,
+  .source-list a {
+    color: var(--ink);
+    background: #121c20;
+    border-color: var(--line);
+  }
+
+  .type-model,
+  .price-toggle-section,
+  .type-compare-visual,
+  .visual-report,
+  .science-layer,
+  .narrative-block,
+  .full-report,
+  .element-fuel-cell-primer,
+  .vehicle-system-section,
+  .refuel-system-section,
+  .fuel-cell-cutaway-section,
+  .sankey-section,
+  .infrastructure-visual-break,
+  .final-verdict,
+  .sources {
+    background: linear-gradient(180deg, rgba(18, 28, 32, 0.96), rgba(12, 20, 23, 0.96));
+    border-color: var(--line);
+  }
+
+  .color-pane[data-color-pane="green"] {
+    background: linear-gradient(135deg, rgba(100, 214, 141, 0.14), rgba(18, 28, 32, 0.98) 48%);
+  }
+
+  .color-pane[data-color-pane="grey"] {
+    background: linear-gradient(135deg, rgba(174, 183, 190, 0.14), rgba(18, 28, 32, 0.98) 48%);
+  }
+
+  .color-pane[data-color-pane="blue"] {
+    background: linear-gradient(135deg, rgba(122, 167, 255, 0.14), rgba(18, 28, 32, 0.98) 48%);
+  }
+
+  .color-pane[data-color-pane="brown"] {
+    background: linear-gradient(135deg, rgba(214, 154, 111, 0.16), rgba(18, 28, 32, 0.98) 48%);
+  }
+
+  .model-green,
+  .model-grey,
+  .model-blue,
+  .model-brown {
+    background: #121c20;
+  }
+
+  .pane-story,
+  .verdict-banner,
+  .figure-caption,
+  .source-list a:hover {
+    color: var(--ink);
+    background: rgba(72, 198, 181, 0.1);
+    border-color: rgba(72, 198, 181, 0.32);
+  }
+
+  .comparison-table-wrap {
+    background: #10191d;
+    border-color: var(--line);
+  }
+
+  .comparison-table thead th,
+  .comparison-table caption {
+    color: var(--ink);
+    background: #17252a;
+  }
+
+  .comparison-table th,
+  .comparison-table td,
+  .report-entry,
+  .narrative-entry,
+  .type-details article {
+    border-color: var(--line);
+  }
+
+  .comparison-table tbody td,
+  .pane-copy p,
+  .type-details p,
+  .price-place p,
+  .visual-card p,
+  .science-card p,
+  .report-entry p,
+  .narrative-entry p,
+  .mobility-card p,
+  .implementation-flow p,
+  .source-card p,
+  .final-verdict p:not(.eyebrow) {
+    color: var(--muted);
+  }
+
+  .evidence-citations a {
+    color: var(--teal-dark);
+    background: #10191d;
+    border-color: rgba(72, 198, 181, 0.32);
+  }
+
+  .model-flow li,
+  .density-visual div,
+  .network-node,
+  .network-station,
+  .network-vehicle,
+  .pathway-card,
+  .source-card,
+  .price-place {
+    background: #10191d;
+  }
+
+  .temperature-visual,
+  .energy-bar .track,
+  .fit-bar div,
+  .waterfall-step i,
+  .sankey-stage i,
+  .compare-bars i {
+    background: #24333a;
+  }
+
+  .equation {
+    color: #dff7ff !important;
+    background: #101d34;
+    border-color: rgba(122, 167, 255, 0.42);
+  }
+
+  .type-image,
+  .fuel-cell-stack-visual,
+  .car-shell,
+  .hydrogen-port-diagram,
+  .refuel-network,
+  .infrastructure-picture-header {
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
+  }
+
+  .source-card a,
+  .report-entry h3,
+  .narrative-entry h3,
+  .primer-callouts span {
+    color: var(--teal-dark);
+  }
+}
+
+/* High-contrast default pass: keep the designed light palette, but make text and panels stronger. */
+html {
+  color-scheme: light;
+}
+
+:root {
+  --muted: #33424b;
+  --line: #b8c4bd;
+  --teal-dark: #063f3a;
+  --blue: #1d4ed8;
+  --green: #0f773b;
+  --grey: #4b5563;
+  --brown: #7a3f1f;
+  --rust: #9f341e;
+  --gold: #9a6b00;
+}
+
+.section-heading p:not(.eyebrow),
+.visual-heading p:not(.eyebrow),
+.science-heading p:not(.eyebrow),
+.model-heading p:not(.eyebrow),
+.pane-copy p,
+.type-details p,
+.price-place p,
+.visual-card p,
+.science-card p,
+.science-explain p,
+.report-entry p,
+.narrative-entry p,
+.mobility-card p,
+.implementation-flow p,
+.source-card p,
+.source-list a,
+.final-verdict p:not(.eyebrow),
+.comparison-table tbody td {
+  color: var(--muted);
+}
+
+.fact-card,
+.analysis-card,
+.loss-card,
+.answer-grid article,
+.path-card,
+.model-card,
+.type-compare-card,
+.visual-card,
+.science-card,
+.science-explain article,
+.price-place,
+.source-card,
+.source-list a,
+.mobility-card,
+.implementation-flow article,
+.evidence-strip article,
+.study-frame article,
+.infrastructure-chain article,
+.scenario-study article,
+.study-conclusion-grid article,
+.vehicle-label-grid article,
+.primer-callouts article,
+.cutaway-zone,
+.pathway-card {
+  border-color: var(--line);
+}
+
+.equation {
+  color: #06131a !important;
+  background: #dfeaff;
+  border-color: rgba(29, 78, 216, 0.34);
+}
+
+.figure-caption,
+.pane-story,
+.verdict-banner {
+  color: #06131a;
+  border-color: rgba(15, 118, 110, 0.32);
+}
+
+.comparison-table thead th,
+.comparison-table caption {
+  color: #06131a;
+  background: #e2ece7;
 }
