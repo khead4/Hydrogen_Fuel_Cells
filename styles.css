@@ -4386,3 +4386,81 @@ html {
   color: #06131a;
   background: #e2ece7;
 }
+
+/* Forced readability pass for appearance settings that wash out long report text. */
+html,
+body {
+  color-scheme: only light !important;
+}
+
+body,
+main,
+.page-section,
+.sources {
+  color: #06131a;
+}
+
+.narrative-block,
+.full-report,
+.section-heading,
+.visual-report,
+.science-layer,
+.type-model,
+.type-compare-visual,
+.price-toggle-section,
+.element-fuel-cell-primer,
+.vehicle-system-section,
+.refuel-system-section,
+.infrastructure-visual-break,
+.fuel-cell-cutaway-section,
+.sankey-section {
+  color: #06131a !important;
+}
+
+.narrative-block {
+  background: linear-gradient(135deg, #fff5cc 0%, #ffffff 52%, #edf8f5 100%) !important;
+  border-color: #aebdb6 !important;
+}
+
+.full-report {
+  background: #ffffff !important;
+  border-color: #aebdb6 !important;
+}
+
+.narrative-heading h2,
+.narrative-entry h3,
+.report-heading h2,
+.report-entry h3,
+.section-heading h2,
+.visual-heading h2,
+.science-heading h2,
+.model-heading h2,
+.full-report h2,
+.full-report h3 {
+  color: #06131a !important;
+}
+
+.narrative-entry p,
+.report-entry p,
+.section-heading p:not(.eyebrow),
+.visual-heading p:not(.eyebrow),
+.science-heading p:not(.eyebrow),
+.model-heading p:not(.eyebrow),
+.full-report p,
+.narrative-block p {
+  color: #20313a !important;
+}
+
+.narrative-entry,
+.report-entry {
+  border-color: #aebdb6 !important;
+}
+
+.narrative-heading .eyebrow,
+.section-heading .eyebrow,
+.visual-heading .eyebrow,
+.science-heading .eyebrow,
+.model-heading .eyebrow,
+.report-heading .eyebrow {
+  color: #064e46 !important;
+}
