@@ -1803,6 +1803,23 @@ meter {
   bottom: 16px;
 }
 
+.membrane-plate {
+  padding: 0 8px;
+  font-size: clamp(0.78rem, 1.15vw, 0.96rem);
+  line-height: 1.1;
+  text-align: center;
+}
+
+.particle:nth-child(3) {
+  top: 28px;
+  left: 46%;
+}
+
+.particle:nth-child(4) {
+  right: 28%;
+  bottom: 28px;
+}
+
 .water-output {
   position: absolute;
   right: 34px;
@@ -4463,4 +4480,147 @@ main,
 .model-heading .eyebrow,
 .report-heading .eyebrow {
   color: #064e46 !important;
+}
+
+/* Fuel-cell primer layout: keep the model visible instead of letting it push callouts off-screen. */
+.element-fuel-cell-primer {
+  overflow: hidden;
+  background: #f4f8fb !important;
+}
+
+.primer-layout {
+  grid-template-columns: minmax(0, 1.08fr) minmax(250px, 0.72fr);
+  grid-template-areas:
+    "visual left"
+    "visual right";
+  align-items: stretch;
+}
+
+.primer-layout > * {
+  min-width: 0;
+}
+
+.fuel-cell-stack-visual {
+  grid-area: visual;
+  min-height: clamp(420px, 36vw, 500px);
+  background:
+    radial-gradient(circle at 18% 75%, rgba(232, 178, 74, 0.24), transparent 22%),
+    linear-gradient(135deg, #ffffff, #eef6fb) !important;
+}
+
+.left-callouts {
+  grid-area: left;
+}
+
+.right-callouts {
+  grid-area: right;
+}
+
+.primer-callouts {
+  align-content: stretch;
+}
+
+.primer-callouts article {
+  min-height: 0;
+  background: #ffffff !important;
+}
+
+.primer-callouts p {
+  color: #20313a !important;
+}
+
+.gas-stream {
+  max-width: calc(100% - 40px);
+  flex-wrap: wrap;
+}
+
+.hydrogen-stream {
+  right: 20px;
+}
+
+.oxygen-stream {
+  left: 20px;
+}
+
+@media (max-width: 960px) {
+  .primer-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left"
+      "visual"
+      "right";
+  }
+
+  .primer-callouts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fuel-cell-stack-visual {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 640px) {
+  .primer-callouts {
+    grid-template-columns: 1fr;
+  }
+
+  .fuel-cell-stack-visual {
+    min-height: 430px;
+  }
+}
+
+/* Named molecule positions keep the fuel-cell chemistry readable. */
+.particle-field {
+  inset: 78px 8% 72px 8%;
+}
+
+.particle {
+  box-shadow: 0 6px 16px rgba(23, 32, 38, 0.16);
+}
+
+.particle.proton-source {
+  top: 58%;
+  left: 41%;
+  right: auto;
+  bottom: auto;
+}
+
+.particle.proton-crossed {
+  top: 68%;
+  left: 61%;
+  right: auto;
+  bottom: auto;
+}
+
+.particle.electron-circuit-one {
+  top: 78%;
+  left: 27%;
+  right: auto;
+  bottom: auto;
+}
+
+.particle.electron-circuit-two {
+  top: 78%;
+  left: 43%;
+  right: auto;
+  bottom: auto;
+}
+
+.particle.product-water {
+  top: 66%;
+  left: 76%;
+  right: auto;
+  bottom: auto;
+}
+
+@media (max-width: 640px) {
+  .particle-field {
+    inset: 92px 7% 78px 7%;
+  }
+
+  .particle.electron-circuit-one,
+  .particle.electron-circuit-two {
+    top: 76%;
+  }
 }
